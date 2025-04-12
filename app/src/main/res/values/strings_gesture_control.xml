@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Gesture Control Activity Additional Strings -->
+    <string name="looking_for_gestures">Looking for gestures…</string>
+    <string name="gesture_detection_stopped">Gesture detection stopped</string>
+    <string name="gesture_wave_left">Wave left hand</string>
+    <string name="gesture_wave_right">Wave right hand</string>
+    <string name="gesture_swipe_left">Swipe left</string>
+    <string name="gesture_swipe_right">Swipe right</string>
+    <string name="gesture_hands_up">Hands up</string>
+    <string name="going_back">Going back</string>
+    <string name="next_feature">Going to next feature</string>
+    <string name="previous_feature">Going to previous feature</string>
+    <string name="going_home">Going to home screen</string>
+    <string name="available_gestures_list">Available gestures:\n\n• Wave left hand: Go back\n• Wave right hand: Go back\n• Swipe left: Next feature\n• Swipe right: Previous feature\n• Hands up: Go to home screen</string>
+</resources>

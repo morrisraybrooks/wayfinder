@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Obstacle Memory Activity Additional Strings -->
+    <string name="obstacle_name_hint">Obstacle name</string>
+    <string name="obstacle_description_hint">Obstacle description (optional)</string>
+    <string name="add_obstacle_button">Add</string>
+    <string name="list_obstacles_button">List</string>
+    <string name="clear_obstacles_button">Clear</string>
+    <string name="enter_obstacle_name">Please enter an obstacle name</string>
+    <string name="obstacle_added">Obstacle %1$s added at current location</string>
+    <string name="waiting_for_obstacle_location">Waiting for location. Please try again in a moment.</string>
+    <string name="no_obstacles_saved">No obstacles saved yet</string>
+    <string name="no_obstacles_to_clear">No obstacles to clear</string>
+    <string name="obstacles_cleared">All obstacles cleared</string>
+    <string name="obstacle_proximity_warning">Warning: %1$s is %2$d meters away</string>
+    <string name="obstacles_list_follows">Here are your saved obstacles:</string>
+    <plurals name="obstacles_count">
+        <item quantity="one">You have %d saved obstacle</item>
+        <item quantity="other">You have %d saved obstacles</item>
+    </plurals>
+    <plurals name="obstacles_loaded">
+        <item quantity="one">%d obstacle loaded</item>
+        <item quantity="other">%d obstacles loaded</item>
+    </plurals>
+</resources>

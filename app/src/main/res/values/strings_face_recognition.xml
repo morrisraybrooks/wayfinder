@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Face Recognition Activity Additional Strings -->
+    <string name="enter_person_name_hint">Enter person\'s name</string>
+    <string name="taking_picture">Taking picture. Please hold still.</string>
+    <string name="no_face_detected">No face detected. Please try again.</string>
+    <string name="face_registered">%1$s\'s face registered successfully</string>
+    <string name="looking_for_faces">Looking for familiar faces…</string>
+    <string name="face_recognition_stopped">Face recognition stopped</string>
+    <string name="captured_face_image">Captured face image</string>
+    <string name="face_recognized">Recognized: %1$s</string>
+    <string name="no_faces_registered">No faces registered yet. Please register at least one face first.</string>
+    <plurals name="registered_faces_count">
+        <item quantity="one">%d face registered</item>
+        <item quantity="other">%d faces registered</item>
+    </plurals>
+</resources>

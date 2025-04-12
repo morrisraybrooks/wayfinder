@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    // Removed KAPT plugin
+}
+
+android {
+    namespace "com.wayfinder.app"
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "com.wayfinder.app"
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    lint {
+        abortOnError false
+    }
+}
+
+// Force JVM target for all Kotlin tasks
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.activity:activity-compose:1.7.0'
+
+    // Camera X dependencies
+    implementation "androidx.camera:camera-core:1.2.2"
+    implementation "androidx.camera:camera-camera2:1.2.2"
+    implementation "androidx.camera:camera-lifecycle:1.2.2"
+    implementation "androidx.camera:camera-view:1.2.2"
+
+    // ML Kit dependencies
+    implementation 'com.google.mlkit:object-detection:17.0.0'
+    implementation 'com.google.mlkit:text-recognition:16.0.0'
+    implementation 'com.google.mlkit:face-detection:16.1.5'
+    implementation 'com.google.mlkit:image-labeling:17.0.7'
+    implementation 'com.google.mlkit:barcode-scanning:17.1.0'  // Updated to match with-kapt version
+    implementation 'com.google.mlkit:pose-detection:18.0.0-beta3'
+
+    // Location services
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    // Retrofit for weather API and product information
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+
+    // Room database for storing obstacle memory and face data
+    implementation 'androidx.room:room-runtime:2.5.1'
+    implementation 'androidx.room:room-ktx:2.5.1'
+    // Note: We're not using kapt, so we can't include the Room compiler
+    // But we need the runtime and ktx libraries
+
+    // Gson for JSON parsing
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    // Palette for color extraction - using ktx version
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+
+    // Testing dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

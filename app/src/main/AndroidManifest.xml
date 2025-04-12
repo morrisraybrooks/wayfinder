@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Basic permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Voice command permissions -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Location permissions for emergency SOS and navigation -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Call permissions for emergency SOS -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <!-- Storage permissions for saving face data and obstacle memory -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+                     android:maxSdkVersion="28" />
+
+    <!-- Network state for weather and product info -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Audio permissions for sound recognition and beacon -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Wayfinder">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Object Detection Activity -->
+        <activity
+            android:name="com.wayfinder.app.ObjectDetectionActivity"
+            android:exported="false" />
+
+        <!-- Text Recognition Activity -->
+        <activity
+            android:name="com.wayfinder.app.TextRecognitionActivity"
+            android:exported="false" />
+
+        <!-- Navigation Assistant Activity -->
+        <activity
+            android:name="com.wayfinder.app.NavigationAssistActivity"
+            android:exported="false" />
+
+        <!-- Voice Command Activity -->
+        <activity
+            android:name="com.wayfinder.app.VoiceCommandActivity"
+            android:exported="false" />
+
+        <!-- Scene Description Activity -->
+        <activity
+            android:name="com.wayfinder.app.SceneDescriptionActivity"
+            android:exported="false" />
+
+        <!-- Color Recognition Activity -->
+        <activity
+            android:name="com.wayfinder.app.ColorRecognitionActivity"
+            android:exported="false" />
+
+        <!-- Currency Identifier Activity -->
+        <activity
+            android:name="com.wayfinder.app.CurrencyIdentifierActivity"
+            android:exported="false" />
+
+        <!-- Product Scanner Activity -->
+        <activity
+            android:name="com.wayfinder.app.ProductScannerActivity"
+            android:exported="false" />
+
+        <!-- Indoor Navigation Activity -->
+        <activity
+            android:name="com.wayfinder.app.IndoorNavigationActivity"
+            android:exported="false" />
+
+        <!-- Public Transport Activity -->
+        <activity
+            android:name="com.wayfinder.app.PublicTransportActivity"
+            android:exported="false" />
+
+        <!-- Emergency SOS Activity -->
+        <activity
+            android:name="com.wayfinder.app.EmergencySOSActivity"
+            android:exported="false" />
+
+        <!-- Audio Beacon Activity -->
+        <activity
+            android:name="com.wayfinder.app.AudioBeaconActivity"
+            android:exported="false" />
+
+        <!-- Sound Recognition Activity -->
+        <activity
+            android:name="com.wayfinder.app.SoundRecognitionActivity"
+            android:exported="false" />
+
+        <!-- Face Recognition Activity -->
+        <activity
+            android:name="com.wayfinder.app.FaceRecognitionActivity"
+            android:exported="false" />
+
+        <!-- Gesture Control Activity -->
+        <activity
+            android:name="com.wayfinder.app.GestureControlActivity"
+            android:exported="false" />
+
+        <!-- Obstacle Memory Activity -->
+        <activity
+            android:name="com.wayfinder.app.ObstacleMemoryActivity"
+            android:exported="false" />
+
+        <!-- Weather Information Activity -->
+        <activity
+            android:name="com.wayfinder.app.WeatherInformationActivity"
+            android:exported="false" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name="com.wayfinder.app.SettingsActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ocr,object_detection,face,barcode,image_labeling" />
+    </application>
+
+</manifest>

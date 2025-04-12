@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wayfinder</string>
+
+    <!-- Main Activity -->
+    <string name="welcome_message">Welcome to Wayfinder, your accessible navigation assistant</string>
+    <string name="detect_objects_button">Detect Objects</string>
+    <string name="detect_objects_description">Tap to identify objects around you using the camera</string>
+    <string name="read_text_button">Read Text</string>
+    <string name="read_text_description">Tap to read text from signs, books, or other printed materials</string>
+    <string name="navigation_assist_button">Navigation Assistant</string>
+    <string name="navigation_assist_description">Tap to get help with navigation and orientation</string>
+    <string name="settings_button">Settings</string>
+    <string name="settings_description">Tap to adjust app settings and preferences</string>
+
+    <!-- New Main Menu Items -->
+    <string name="voice_command_button">Voice Commands</string>
+    <string name="voice_command_description">Tap to control the app with your voice</string>
+    <string name="scene_description_button">Describe Scene</string>
+    <string name="scene_description_description">Tap to get a description of what\'s around you</string>
+    <string name="color_recognition_button">Identify Colors</string>
+    <string name="color_recognition_description">Tap to identify colors of objects</string>
+    <string name="currency_identifier_button">Identify Money</string>
+    <string name="currency_identifier_description">Tap to identify paper money denominations</string>
+    <string name="product_scanner_button">Scan Products</string>
+    <string name="product_scanner_description">Tap to scan product barcodes for information</string>
+    <string name="indoor_navigation_button">Indoor Navigation</string>
+    <string name="indoor_navigation_description">Tap for help navigating indoor spaces</string>
+    <string name="public_transport_button">Public Transport</string>
+    <string name="public_transport_description">Tap for help with public transportation</string>
+    <string name="emergency_sos_button">Emergency SOS</string>
+    <string name="emergency_sos_description">Tap to access emergency features</string>
+    <string name="audio_beacon_button">Audio Beacon</string>
+    <string name="audio_beacon_description">Tap to set or follow an audio beacon</string>
+    <string name="sound_recognition_button">Recognize Sounds</string>
+    <string name="sound_recognition_description">Tap to identify important sounds around you</string>
+    <string name="face_recognition_button">Recognize Faces</string>
+    <string name="face_recognition_description">Tap to identify people you know</string>
+    <string name="gesture_control_button">Gesture Controls</string>
+    <string name="gesture_control_description">Tap to control the app with hand gestures</string>
+    <string name="obstacle_memory_button">Obstacle Memory</string>
+    <string name="obstacle_memory_description">Tap to remember obstacles in familiar places</string>
+    <string name="weather_information_button">Weather Info</string>
+    <string name="weather_information_description">Tap to get current weather information</string>
+
+    <!-- Object Detection Activity -->
+    <string name="object_detection_title">Object Detection</string>
+    <string name="object_detection_instructions">Point your camera at objects around you. The app will identify them and announce what it sees.</string>
+    <string name="start_detection_button">Start Detection</string>
+    <string name="stop_detection_button">Stop Detection</string>
+    <string name="no_objects_detected">No objects detected. Try pointing your camera at something else.</string>
+    <string name="object_detected">%1$s detected at %2$s meters distance</string>
+    <string name="looking_for_objects">Looking for objects…</string>
+    <string name="objects_detected">Objects detected: %1$s</string>
+    <string name="new_object_detected">New object detected: %1$s</string>
+    <string name="new_objects_detected">New objects detected: %1$s</string>
+
+    <!-- Enhanced Object Detection Strings -->
+    <string name="object_close">%1$s close to you on your %2$s</string>
+    <string name="object_medium">%1$s at medium distance on your %2$s</string>
+    <string name="object_far">%1$s far away on your %2$s</string>
+    <string name="position_left">left</string>
+    <string name="position_center">center</string>
+    <string name="position_right">right</string>
+    <string name="multiple_objects_detected">Multiple objects detected: %1$s</string>
+    <string name="priority_object_warning">Warning: %1$s detected nearby</string>
+
+    <!-- Text Recognition Activity -->
+    <string name="text_recognition_title">Text Recognition</string>
+    <string name="text_recognition_instructions">Point your camera at text you want to read. The app will scan and read it aloud.</string>
+    <string name="start_text_recognition_button">Start Reading</string>
+    <string name="stop_text_recognition_button">Stop Reading</string>
+    <string name="no_text_detected">No text detected. Try pointing your camera at printed text.</string>
+    <string name="looking_for_text">Looking for text…</string>
+    <string name="text_detected_reading">Text detected. Reading:</string>
+
+    <!-- Navigation Assistant Activity -->
+    <string name="navigation_title">Navigation Assistant</string>
+    <string name="navigation_instructions">This feature will help you navigate your surroundings safely.</string>
+    <string name="start_navigation_button">Start Navigation</string>
+    <string name="stop_navigation_button">Stop Navigation</string>
+    <string name="obstacle_warning">Warning: %1$s %2$s meters ahead</string>
+    <string name="navigation_started">Navigation started. I will alert you to obstacles.</string>
+    <string name="navigation_stopped">Navigation stopped.</string>
+    <string name="clear_path">Path is clear</string>
+
+    <!-- Voice Command Activity -->
+    <string name="voice_command_title">Voice Commands</string>
+    <string name="voice_command_instructions">Speak commands to control the app. Try saying \"detect objects\", \"read text\", or \"help me navigate\".</string>
+    <string name="start_listening_button">Start Listening</string>
+    <string name="stop_listening_button">Stop Listening</string>
+    <string name="listening_status">Listening for commands...</string>
+    <string name="command_recognized">I heard: %1$s</string>
+    <string name="command_not_recognized">Sorry, I didn\'t understand that command. Please try again.</string>
+
+    <!-- Scene Description Activity -->
+    <string name="scene_description_title">Scene Description</string>
+    <string name="scene_description_instructions">Point your camera at a scene to get a detailed description of what\'s around you.</string>
+    <string name="start_scene_description_button">Describe Scene</string>
+    <string name="stop_scene_description_button">Stop Description</string>
+    <string name="no_scene_detected">Unable to describe the scene. Please try pointing your camera at a different area.</string>
+    <string name="scene_analyzing">Analyzing the scene...</string>
+
+    <!-- Color Recognition Activity -->
+    <string name="color_recognition_title">Color Recognition</string>
+    <string name="color_recognition_instructions">Point your camera at objects to identify their colors.</string>
+    <string name="start_color_recognition_button">Identify Colors</string>
+    <string name="stop_color_recognition_button">Stop Color ID</string>
+    <string name="no_colors_detected">No distinct colors detected. Try pointing your camera at colorful objects.</string>
+    <string name="color_detected">The main color is %1$s</string>
+    <string name="multiple_colors_detected">I see %1$s, %2$s, and %3$s</string>
+
+    <!-- Currency Identifier Activity -->
+    <string name="currency_identifier_title">Currency Identifier</string>
+    <string name="currency_identifier_instructions">Point your camera at paper money to identify its denomination.</string>
+    <string name="start_currency_identification_button">Identify Money</string>
+    <string name="stop_currency_identification_button">Stop Identification</string>
+    <string name="no_currency_detected">No currency detected. Try pointing your camera at paper money.</string>
+    <string name="currency_detected">This appears to be a %1$s %2$s bill</string>
+
+    <!-- Product Scanner Activity -->
+    <string name="product_scanner_title">Product Scanner</string>
+    <string name="product_scanner_instructions">Point your camera at a product barcode to get information about the product.</string>
+    <string name="start_product_scanning_button">Scan Product</string>
+    <string name="stop_product_scanning_button">Stop Scanning</string>
+    <string name="no_barcode_detected">No barcode detected. Try pointing your camera at a product barcode.</string>
+    <string name="barcode_detected">Barcode detected: %1$s</string>
+    <string name="product_information">Product: %1$s\nPrice: %2$s\nDescription: %3$s</string>
+
+    <!-- Indoor Navigation Activity -->
+    <string name="indoor_navigation_title">Indoor Navigation</string>
+    <string name="indoor_navigation_instructions">This feature helps you navigate indoor spaces by identifying doorways, stairs, and other features.</string>
+    <string name="start_indoor_navigation_button">Start Indoor Navigation</string>
+    <string name="stop_indoor_navigation_button">Stop Indoor Navigation</string>
+    <string name="doorway_detected">Doorway detected approximately %1$s meters ahead</string>
+    <string name="stairs_detected">Stairs detected approximately %1$s meters ahead</string>
+    <string name="elevator_detected">Elevator detected approximately %1$s meters ahead</string>
+    <string name="no_features_detected">No indoor features detected. Try moving around or pointing your camera in different directions.</string>
+    <string name="looking_for_indoor_features">Looking for doorways, stairs, and elevators…</string>
+    <string name="indoor_features_detected">Indoor features detected: %1$s</string>
+    <string name="door_detected">Door detected. Possible entrance or exit.</string>
+    <string name="hallway_detected">Hallway detected.</string>
+    <string name="room_detected">Room entrance detected.</string>
+    <string name="indoor_feature_detected">%1$s detected.</string>
+
+    <!-- Public Transport Activity -->
+    <string name="public_transport_title">Public Transport Assistant</string>
+    <string name="public_transport_instructions">Point your camera at bus numbers, train information, or schedules to get assistance with public transportation.</string>
+    <string name="start_transport_recognition_button">Identify Transport</string>
+    <string name="stop_transport_recognition_button">Stop Recognition</string>
+    <string name="no_transport_info_detected">No transport information detected. Try pointing your camera at bus numbers or schedules.</string>
+    <string name="bus_number_detected">Bus number %1$s detected</string>
+    <string name="train_info_detected">Train information detected: %1$s</string>
+    <string name="schedule_detected">Schedule detected: %1$s</string>
+    <string name="destination_detected">Destination: %1$s</string>
+    <string name="looking_for_transport_info">Looking for bus numbers, train information, and schedules…</string>
+    <string name="transport_info_detected">Transport information detected:</string>
+
+    <!-- Emergency SOS Activity -->
+    <string name="emergency_sos_title">Emergency SOS</string>
+    <string name="emergency_sos_instructions">This feature allows you to quickly contact emergency services or your designated emergency contacts.</string>
+    <string name="call_emergency_services_button">Call Emergency Services</string>
+    <string name="call_emergency_contact_button">Call Emergency Contact</string>
+    <string name="send_location_button">Send Location</string>
+    <string name="emergency_contact_name">Emergency Contact: %1$s</string>
+    <string name="emergency_contact_number">Number: %1$s</string>
+    <string name="emergency_message_sent">Emergency message sent with your location</string>
+    <string name="emergency_call_initiated">Emergency call initiated</string>
+    <string name="configure_emergency_contacts">Configure Emergency Contacts</string>
+
+    <!-- Audio Beacon Activity -->
+    <string name="audio_beacon_title">Audio Beacon</string>
+    <string name="audio_beacon_instructions">This feature creates an audio beacon that can help you find your way back to a specific location.</string>
+    <string name="set_beacon_button">Set Beacon</string>
+    <string name="activate_beacon_button">Activate Beacon</string>
+    <string name="deactivate_beacon_button">Deactivate Beacon</string>
+    <string name="beacon_set">Beacon set at current location</string>
+    <string name="beacon_activated">Beacon activated. Follow the sound to return to your marked location.</string>
+    <string name="beacon_deactivated">Beacon deactivated</string>
+    <string name="beacon_distance">You are approximately %1$s meters from the beacon</string>
+    <string name="beacon_reached">You have reached the beacon</string>
+    <string name="beacon_distance_direction">Beacon is %1$d meters %2$s</string>
+    <string name="no_beacon_set">No beacon set. Please set a beacon first.</string>
+    <string name="waiting_for_location">Waiting for location. Please try again in a moment.</string>
+    <string name="location_services_active">Location services active. Ready to set a beacon.</string>
+    <string name="direction_north">north</string>
+    <string name="direction_northeast">northeast</string>
+    <string name="direction_east">east</string>
+    <string name="direction_southeast">southeast</string>
+    <string name="direction_south">south</string>
+    <string name="direction_southwest">southwest</string>
+    <string name="direction_west">west</string>
+    <string name="direction_northwest">northwest</string>
+
+    <!-- Sound Recognition Activity -->
+    <string name="sound_recognition_title">Sound Recognition</string>
+    <string name="sound_recognition_instructions">This feature identifies important sounds in your environment, such as sirens, car horns, or doorbells.</string>
+    <string name="start_sound_recognition_button">Start Listening</string>
+    <string name="stop_sound_recognition_button">Stop Listening</string>
+    <string name="no_sounds_detected">No significant sounds detected</string>
+    <string name="sound_detected">Detected: %1$s</string>
+    <string name="sound_direction">%1$s detected from your %2$s</string>
+    <string name="listening_for_sounds">Listening for important sounds…</string>
+    <string name="sound_recognition_stopped">Sound recognition stopped</string>
+    <string name="direction_left">left</string>
+    <string name="direction_right">right</string>
+    <string name="direction_front">front</string>
+    <string name="direction_behind">behind</string>
+    <string name="detectable_sounds_list">Detectable sounds include:\n\n• Sirens\n• Car horns\n• Doorbells\n• Alarms\n• Glass breaking\n• Dog barking\n• Baby crying</string>
+
+    <!-- Face Recognition Activity -->
+    <string name="face_recognition_title">Face Recognition</string>
+    <string name="face_recognition_instructions">This feature helps you identify people you know by recognizing their faces.</string>
+    <string name="start_face_recognition_button">Recognize Faces</string>
+    <string name="stop_face_recognition_button">Stop Recognition</string>
+    <string name="register_face_button">Register New Face</string>
+    <string name="no_faces_detected">No faces detected</string>
+    <string name="face_detected">I see %1$s</string>
+    <string name="unknown_face_detected">Unknown person detected</string>
+    <string name="add_face_instructions">Please take a photo of the person you want to add</string>
+    <string name="enter_person_name">Enter the person\'s name</string>
+    <string name="face_added">%1$s added to your contacts</string>
+
+    <!-- Gesture Control Activity -->
+    <string name="gesture_control_title">Gesture Controls</string>
+    <string name="gesture_control_instructions">This feature allows you to control the app using hand gestures.</string>
+    <string name="start_gesture_detection_button">Start Gesture Detection</string>
+    <string name="stop_gesture_detection_button">Stop Gesture Detection</string>
+    <string name="no_gestures_detected">No gestures detected</string>
+    <string name="gesture_detected">Gesture detected: %1$s</string>
+    <string name="gesture_command_executed">Executing command: %1$s</string>
+
+    <!-- Obstacle Memory Activity -->
+    <string name="obstacle_memory_title">Obstacle Memory</string>
+    <string name="obstacle_memory_instructions">This feature remembers obstacles in places you visit frequently and warns you about them.</string>
+    <string name="start_obstacle_mapping_button">Start Mapping</string>
+    <string name="stop_obstacle_mapping_button">Stop Mapping</string>
+    <string name="save_location_button">Save This Location</string>
+    <string name="location_name_prompt">Enter a name for this location</string>
+    <string name="location_saved">Location saved as %1$s with %2$d obstacles mapped</string>
+    <string name="remembered_obstacle_warning">Caution: %1$s ahead based on previous visits</string>
+    <string name="clear_obstacle_memory">Clear Obstacle Memory</string>
+
+    <!-- Weather Information Activity -->
+    <string name="weather_information_title">Weather Information</string>
+    <string name="weather_information_instructions">This feature provides current weather conditions and forecasts.</string>
+    <string name="get_current_weather_button">Current Weather</string>
+    <string name="get_weather_forecast_button">Weather Forecast</string>
+    <string name="weather_loading">Loading weather information...</string>
+    <string name="current_weather">Current weather: %1$s, %2$s degrees, %3$s humidity</string>
+    <string name="weather_forecast">Forecast: %1$s</string>
+    <string name="weather_alert">Weather Alert: %1$s</string>
+
+    <!-- Settings Activity -->
+    <string name="settings_title">Settings</string>
+    <string name="speech_rate_setting">Speech Rate</string>
+    <string name="speech_pitch_setting">Speech Pitch</string>
+    <string name="vibration_intensity_setting">Vibration Intensity</string>
+    <string name="high_contrast_mode_setting">High Contrast Mode</string>
+    <string name="emergency_contacts_setting">Emergency Contacts</string>
+    <string name="voice_command_sensitivity_setting">Voice Command Sensitivity</string>
+    <string name="save_settings_button">Save Settings</string>
+    <string name="reset_settings_button">Reset to Defaults</string>
+    <string name="settings_saved">Settings saved</string>
+    <string name="settings_reset">Settings reset to defaults</string>
+
+    <!-- Accessibility Descriptions -->
+    <string name="camera_preview_description">Camera view for detecting objects and text</string>
+    <string name="back_button_description">Return to previous screen</string>
+    <string name="help_button_description">Get help with using this feature</string>
+    <string name="voice_command_button_description">Tap to activate voice commands</string>
+    <string name="emergency_button_description">Tap and hold for emergency assistance</string>
+    <string name="feature_grid_description">Grid of available features</string>
+</resources>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/welcome_message"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        android:textSize="24sp"
+        android:contentDescription="@string/welcome_message"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/feature_grid_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Object Detection -->
+            <Button
+                android:id="@+id/objectDetectionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/detect_objects_description"
+                android:padding="16dp"
+                android:text="@string/detect_objects_button"
+                android:textSize="18sp"
+                android:background="@drawable/rounded_button" />
+
+            <!-- Text Recognition -->
+            <Button
+                android:id="@+id/textRecognitionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/read_text_description"
+                android:padding="16dp"
+                android:text="@string/read_text_button"
+                android:textSize="18sp" />
+
+            <!-- Navigation Assistant -->
+            <Button
+                android:id="@+id/navigationAssistButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/navigation_assist_description"
+                android:padding="16dp"
+                android:text="@string/navigation_assist_button"
+                android:textSize="18sp" />
+
+            <!-- Voice Commands -->
+            <Button
+                android:id="@+id/voiceCommandButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/voice_command_description"
+                android:padding="16dp"
+                android:text="@string/voice_command_button"
+                android:textSize="18sp" />
+
+            <!-- Scene Description -->
+            <Button
+                android:id="@+id/sceneDescriptionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/scene_description_description"
+                android:padding="16dp"
+                android:text="@string/scene_description_button"
+                android:textSize="18sp" />
+
+            <!-- Color Recognition -->
+            <Button
+                android:id="@+id/colorRecognitionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/color_recognition_description"
+                android:padding="16dp"
+                android:text="@string/color_recognition_button"
+                android:textSize="18sp" />
+
+            <!-- Currency Identifier -->
+            <Button
+                android:id="@+id/currencyIdentifierButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/currency_identifier_description"
+                android:padding="16dp"
+                android:text="@string/currency_identifier_button"
+                android:textSize="18sp" />
+
+            <!-- Product Scanner -->
+            <Button
+                android:id="@+id/productScannerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/product_scanner_description"
+                android:padding="16dp"
+                android:text="@string/product_scanner_button"
+                android:textSize="18sp" />
+
+            <!-- Indoor Navigation -->
+            <Button
+                android:id="@+id/indoorNavigationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/indoor_navigation_description"
+                android:padding="16dp"
+                android:text="@string/indoor_navigation_button"
+                android:textSize="18sp" />
+
+            <!-- Public Transport -->
+            <Button
+                android:id="@+id/publicTransportButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/public_transport_description"
+                android:padding="16dp"
+                android:text="@string/public_transport_button"
+                android:textSize="18sp" />
+
+            <!-- Emergency SOS -->
+            <Button
+                android:id="@+id/emergencySosButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/emergency_sos_description"
+                android:padding="16dp"
+                android:text="@string/emergency_sos_button"
+                android:textSize="18sp" />
+
+            <!-- Audio Beacon -->
+            <Button
+                android:id="@+id/audioBeaconButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/audio_beacon_description"
+                android:padding="16dp"
+                android:text="@string/audio_beacon_button"
+                android:textSize="18sp" />
+
+            <!-- Sound Recognition -->
+            <Button
+                android:id="@+id/soundRecognitionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/sound_recognition_description"
+                android:padding="16dp"
+                android:text="@string/sound_recognition_button"
+                android:textSize="18sp" />
+
+            <!-- Face Recognition -->
+            <Button
+                android:id="@+id/faceRecognitionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/face_recognition_description"
+                android:padding="16dp"
+                android:text="@string/face_recognition_button"
+                android:textSize="18sp" />
+
+            <!-- Gesture Control -->
+            <Button
+                android:id="@+id/gestureControlButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/gesture_control_description"
+                android:padding="16dp"
+                android:text="@string/gesture_control_button"
+                android:textSize="18sp" />
+
+            <!-- Obstacle Memory -->
+            <Button
+                android:id="@+id/obstacleMemoryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/obstacle_memory_description"
+                android:padding="16dp"
+                android:text="@string/obstacle_memory_button"
+                android:textSize="18sp" />
+
+            <!-- Weather Information -->
+            <Button
+                android:id="@+id/weatherInformationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/weather_information_description"
+                android:padding="16dp"
+                android:text="@string/weather_information_button"
+                android:textSize="18sp" />
+
+            <!-- Settings -->
+            <Button
+                android:id="@+id/settingsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/settings_description"
+                android:padding="16dp"
+                android:text="@string/settings_button"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

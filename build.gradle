@@ -1,0 +1,30 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20'
+    }
+}
+
+allprojects {
+    tasks.withType(JavaCompile).configureEach {
+        options.compilerArgs += [
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED',
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED',
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED',
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED',
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED',
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED',
+            '--add-exports', 'jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED'
+        ]
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
