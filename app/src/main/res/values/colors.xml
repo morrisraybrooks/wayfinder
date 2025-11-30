@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material Design 3 color scheme -->
+    <color name="primary">#2196F3</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#BBDEFB</color>
+    <color name="on_primary_container">#0D47A1</color>
+    
+    <color name="secondary">#FFC107</color>
+    <color name="on_secondary">#000000</color>
+    <color name="secondary_container">#FFECB3</color>
+    <color name="on_secondary_container">#E65100</color>
+    
+    <color name="error">#B00020</color>
+    <color name="on_error">#FFFFFF</color>
+    
+    <color name="surface">#FFFFFF</color>
+    <color name="on_surface">#212121</color>
+    <color name="background">#F5F5F5</color>
+    <color name="on_background">#212121</color>
+    
+    <!-- Legacy colors for backward compatibility -->
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#FFC107</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    
+    <!-- High contrast colors for accessibility -->
+    <color name="high_contrast_background">#000000</color>
+    <color name="high_contrast_text">#FFFFFF</color>
+    <color name="high_contrast_button">#FFC107</color>
+    <color name="high_contrast_button_text">#000000</color>
+    <color name="warning">#FF5722</color>
+</resources>

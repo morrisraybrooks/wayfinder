@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.Wayfinder" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/icons</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent</item>
+        <item name="colorOnSecondary">@color/high_contrast_button_text</item>
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        <!-- Customize text appearance for better accessibility -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Wayfinder.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Wayfinder.Headline2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Wayfinder.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Wayfinder.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Wayfinder.Button</item>
+    </style>
+    
+    <!-- High contrast theme for accessibility -->
+    <style name="Theme.Wayfinder.HighContrast" parent="Theme.Wayfinder">
+        <item name="android:background">@color/high_contrast_background</item>
+        <item name="android:textColor">@color/high_contrast_text</item>
+        <item name="colorPrimary">@color/high_contrast_button</item>
+        <item name="colorOnPrimary">@color/high_contrast_button_text</item>
+    </style>
+    
+    <!-- Text styles with larger fonts for accessibility -->
+    <style name="TextAppearance.Wayfinder.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="TextAppearance.Wayfinder.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="TextAppearance.Wayfinder.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="TextAppearance.Wayfinder.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="TextAppearance.Wayfinder.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

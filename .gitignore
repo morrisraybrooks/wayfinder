@@ -1,0 +1,54 @@
+# Gradle files
+.gradle/
+build/
+.idea/
+*.iml
+local.properties
+
+# Generated files
+bin/
+gen/
+out/
+
+# Log Files
+*.log
+
+# Android Studio Navigation
+.navigation/
+
+# Android Studio captures folder
+captures/
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# External native build folder
+.externalNativeBuild
+.cxx/
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Version control
+vcs.xml
+
+# Temporary build files
+*.tmp
+temp_gradle.properties
+*.tmp.gradle
+
+# MacOS
+.DS_Store
+
+# Linux
+*~

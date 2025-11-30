@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/settingsTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/settings_title"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceHeadline2"
+            android:textSize="28sp"
+            android:focusable="true"
+            android:importantForAccessibility="yes" />
+
+        <!-- Speech Rate Setting -->
+        <TextView
+            android:id="@+id/speechRateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/speech_rate_setting"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:focusable="true"
+            android:importantForAccessibility="yes" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/speechRateSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.8"
+                android:max="100"
+                android:progress="50"
+                android:contentDescription="@string/speech_rate_setting" />
+
+            <TextView
+                android:id="@+id/speechRateValueTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="1.0"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Speech Pitch Setting -->
+        <TextView
+            android:id="@+id/speechPitchTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/speech_pitch_setting"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:focusable="true"
+            android:importantForAccessibility="yes" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/speechPitchSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.8"
+                android:max="100"
+                android:progress="50"
+                android:contentDescription="@string/speech_pitch_setting" />
+
+            <TextView
+                android:id="@+id/speechPitchValueTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="1.0"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Vibration Intensity Setting -->
+        <TextView
+            android:id="@+id/vibrationIntensityTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/vibration_intensity_setting"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:focusable="true"
+            android:importantForAccessibility="yes" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/vibrationIntensitySeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.8"
+                android:max="100"
+                android:progress="50"
+                android:contentDescription="@string/vibration_intensity_setting" />
+
+            <TextView
+                android:id="@+id/vibrationValueTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="0.5"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- High Contrast Mode Setting -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/highContrastModeSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/high_contrast_mode_setting"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:focusable="true"
+            android:importantForAccessibility="yes" />
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/saveSettingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:text="@string/save_settings_button"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/resetSettingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:text="@string/reset_settings_button"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp"
+            android:text="@string/back_button_description"
+            android:textSize="18sp"
+            android:contentDescription="@string/back_button_description" />
+
+    </LinearLayout>
+</ScrollView>
