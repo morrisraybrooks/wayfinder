@@ -42,25 +42,47 @@ class CurrencyIdentifierActivity : BaseAccessibilityActivity() {
 
     private val CAMERA_PERMISSION_CODE = 100
     
-    // Currency patterns to look for
-    private val currencyPatterns = mapOf(
-        "USD" to listOf(
-            Pattern.compile("\\$?\\s*1\\s*(?:dollar|DOLLAR)"),
-            Pattern.compile("\\$?\\s*5\\s*(?:dollar|DOLLAR)"),
-            Pattern.compile("\\$?\\s*10\\s*(?:dollar|DOLLAR)"),
-            Pattern.compile("\\$?\\s*20\\s*(?:dollar|DOLLAR)"),
-            Pattern.compile("\\$?\\s*50\\s*(?:dollar|DOLLAR)"),
-            Pattern.compile("\\$?\\s*100\\s*(?:dollar|DOLLAR)")
-        ),
-        "EUR" to listOf(
-            Pattern.compile("5\\s*(?:euro|EURO)"),
-            Pattern.compile("10\\s*(?:euro|EURO)"),
-            Pattern.compile("20\\s*(?:euro|EURO)"),
-            Pattern.compile("50\\s*(?:euro|EURO)"),
-            Pattern.compile("100\\s*(?:euro|EURO)"),
-            Pattern.compile("200\\s*(?:euro|EURO)"),
-            Pattern.compile("500\\s*(?:euro|EURO)")
-        )
+    // Currency denomination mappings - text found on bills to their values
+    private val usdTextToDenomination = mapOf(
+        // Word forms found on US bills
+        "ONE" to "1",
+        "TWO" to "2",
+        "FIVE" to "5",
+        "TEN" to "10",
+        "TWENTY" to "20",
+        "FIFTY" to "50",
+        "ONE HUNDRED" to "100",
+        "HUNDRED" to "100"
+    )
+
+    // Patterns to identify USD bills - looking for text actually printed on bills
+    private val usdPatterns = listOf(
+        // Look for denomination words
+        Pattern.compile("\\b(ONE HUNDRED|HUNDRED)\\b", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("\\b(FIFTY)\\b", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("\\b(TWENTY)\\b", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("\\b(TEN)\\b", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("\\b(FIVE)\\b", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("\\b(TWO)\\b", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("\\b(ONE)\\b", Pattern.CASE_INSENSITIVE),
+        // Look for numeric values with dollar signs or "DOLLARS"
+        Pattern.compile("\\$\\s*(\\d+)", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("(\\d+)\\s*DOLLARS?", Pattern.CASE_INSENSITIVE),
+        // Common text found on US bills
+        Pattern.compile("FEDERAL RESERVE NOTE", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("UNITED STATES OF AMERICA", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("THE UNITED STATES", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("THIS NOTE IS LEGAL TENDER", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("IN GOD WE TRUST", Pattern.CASE_INSENSITIVE)
+    )
+
+    // Patterns for Euro bills
+    private val euroPatterns = listOf(
+        Pattern.compile("(5|10|20|50|100|200|500)\\s*€", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("€\\s*(5|10|20|50|100|200|500)", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("(5|10|20|50|100|200|500)\\s*EURO", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("EUROPEAN CENTRAL BANK", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("BCE ECB EZB EKT EKP", Pattern.CASE_INSENSITIVE)
     )
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -178,56 +200,39 @@ class CurrencyIdentifierActivity : BaseAccessibilityActivity() {
     
     private inner class CurrencyAnalyzer : ImageAnalysis.Analyzer {
         private var lastAnalysisTimestamp = 0L
-        private val ANALYSIS_INTERVAL = 2000L // 2 seconds between analyses
+        private val ANALYSIS_INTERVAL = 1500L // 1.5 seconds between analyses
         private val textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
-        
+        private var lastSpokenResult = ""
+        private var lastSpokenTime = 0L
+        private val SPEAK_COOLDOWN = 3000L // Don't repeat same result within 3 seconds
+
         override fun analyze(imageProxy: ImageProxy) {
             val currentTimestamp = System.currentTimeMillis()
-            
+
             if (currentTimestamp - lastAnalysisTimestamp >= ANALYSIS_INTERVAL) {
                 val mediaImage = imageProxy.image
                 if (mediaImage != null && isAnalyzing) {
                     val image = InputImage.fromMediaImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
-                    
+
                     // Process the image with text recognition
                     textRecognizer.process(image)
                         .addOnSuccessListener { visionText ->
-                            val text = visionText.text
+                            val text = visionText.text.uppercase()
 
                             if (text.isEmpty()) {
-                                runOnUiThread {
-                                    currencyResultTextView.text = getString(R.string.no_currency_detected)
-                                }
-                                speak(getString(R.string.no_currency_detected), TextToSpeech.QUEUE_FLUSH)
+                                updateResult(getString(R.string.no_currency_detected), false)
                             } else {
-                                // Check for currency patterns
-                                var currencyFound = false
-
-                                for ((currency, patterns) in currencyPatterns) {
-                                    for (pattern in patterns) {
-                                        val matcher = pattern.matcher(text)
-                                        if (matcher.find()) {
-                                            val match = matcher.group(0)
-                                            val denomination = extractDenomination(match)
-
-                                            val result = getString(R.string.currency_detected, denomination, currency)
-                                            runOnUiThread {
-                                                currencyResultTextView.text = result
-                                            }
-                                            speak(result, TextToSpeech.QUEUE_FLUSH)
-
-                                            currencyFound = true
-                                            break
-                                        }
+                                // Try to identify currency
+                                val result = identifyCurrency(text)
+                                if (result != null) {
+                                    updateResult(result, true)
+                                } else {
+                                    // Check if we see any currency-related text
+                                    if (looksLikeCurrency(text)) {
+                                        updateResult("Possible currency detected. Please adjust angle or lighting.", false)
+                                    } else {
+                                        updateResult(getString(R.string.no_currency_detected), false)
                                     }
-                                    if (currencyFound) break
-                                }
-
-                                if (!currencyFound) {
-                                    runOnUiThread {
-                                        currencyResultTextView.text = getString(R.string.no_currency_detected)
-                                    }
-                                    // Don't speak this every time to avoid too much feedback
                                 }
                             }
 
@@ -248,18 +253,106 @@ class CurrencyIdentifierActivity : BaseAccessibilityActivity() {
                 imageProxy.close()
             }
         }
-        
-        private fun extractDenomination(text: String?): String {
-            if (text == null) return "unknown"
-            // Extract the numeric value from the matched text
-            val numericPattern = Pattern.compile("\\d+")
-            val matcher = numericPattern.matcher(text)
-            
-            return if (matcher.find()) {
-                matcher.group(0) ?: "unknown"
-            } else {
-                "unknown"
+
+        private fun updateResult(result: String, shouldSpeak: Boolean) {
+            runOnUiThread {
+                currencyResultTextView.text = result
             }
+
+            // Only speak if it's a new result or enough time has passed
+            val currentTime = System.currentTimeMillis()
+            if (shouldSpeak && (result != lastSpokenResult || currentTime - lastSpokenTime > SPEAK_COOLDOWN)) {
+                speak(result, TextToSpeech.QUEUE_FLUSH)
+                vibrate() // Haptic feedback when currency detected
+                lastSpokenResult = result
+                lastSpokenTime = currentTime
+            }
+        }
+
+        private fun identifyCurrency(text: String): String? {
+            // First, try to identify USD
+            val usdResult = identifyUSD(text)
+            if (usdResult != null) return usdResult
+
+            // Try to identify Euro
+            val euroResult = identifyEuro(text)
+            if (euroResult != null) return euroResult
+
+            return null
+        }
+
+        private fun identifyUSD(text: String): String? {
+            // Look for denomination words on US bills
+            for ((word, value) in usdTextToDenomination) {
+                if (text.contains(word)) {
+                    // Make sure it's not just a random occurrence - check for other bill indicators
+                    if (text.contains("DOLLAR") || text.contains("FEDERAL") ||
+                        text.contains("UNITED STATES") || text.contains("RESERVE") ||
+                        text.contains("LEGAL TENDER") || text.contains("NOTE") ||
+                        text.contains("AMERICA") || text.contains("GOD WE TRUST") ||
+                        text.contains("WASHINGTON") || text.contains("LINCOLN") ||
+                        text.contains("HAMILTON") || text.contains("JACKSON") ||
+                        text.contains("GRANT") || text.contains("FRANKLIN")) {
+                        return "$value dollar bill detected"
+                    }
+                }
+            }
+
+            // Look for numeric patterns with dollar indicators
+            val dollarPattern = Pattern.compile("\\$\\s*(\\d+)")
+            val dollarMatcher = dollarPattern.matcher(text)
+            if (dollarMatcher.find()) {
+                val amount = dollarMatcher.group(1)
+                if (amount in listOf("1", "2", "5", "10", "20", "50", "100")) {
+                    return "$amount dollar bill detected"
+                }
+            }
+
+            // Check for "X DOLLARS" pattern
+            val dollarsPattern = Pattern.compile("(\\d+)\\s*DOLLARS?")
+            val dollarsMatcher = dollarsPattern.matcher(text)
+            if (dollarsMatcher.find()) {
+                val amount = dollarsMatcher.group(1)
+                if (amount in listOf("1", "2", "5", "10", "20", "50", "100")) {
+                    return "$amount dollar bill detected"
+                }
+            }
+
+            return null
+        }
+
+        private fun identifyEuro(text: String): String? {
+            // Look for Euro denominations
+            val euroAmounts = listOf("5", "10", "20", "50", "100", "200", "500")
+
+            for (amount in euroAmounts) {
+                // Check various Euro patterns
+                if (text.contains("$amount €") || text.contains("€ $amount") ||
+                    text.contains("$amount EURO") || text.contains("EURO $amount")) {
+                    return "$amount Euro note detected"
+                }
+            }
+
+            // Check for Euro Central Bank text with any amount
+            if (text.contains("EUROPEAN CENTRAL BANK") || text.contains("BCE") || text.contains("ECB")) {
+                for (amount in euroAmounts) {
+                    if (text.contains(amount)) {
+                        return "$amount Euro note detected"
+                    }
+                }
+                return "Euro note detected - please hold steady to identify denomination"
+            }
+
+            return null
+        }
+
+        private fun looksLikeCurrency(text: String): Boolean {
+            // Check if text contains any currency indicators
+            val currencyIndicators = listOf(
+                "DOLLAR", "FEDERAL", "RESERVE", "UNITED STATES", "AMERICA",
+                "EURO", "€", "$", "BANK", "NOTE", "TENDER", "CURRENCY"
+            )
+            return currencyIndicators.any { text.contains(it) }
         }
     }
     
